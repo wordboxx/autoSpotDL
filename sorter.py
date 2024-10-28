@@ -10,10 +10,17 @@ MUSIC_DIR = sys.argv[2]
 
 # Get Tags
 for file in os.listdir(DL_DIR):
-    file_tags = EasyID3(DL_DIR + "/" + file)
-    file_title = file_tags["title"][0]
-    file_artist = file_tags["artist"][0]
-    file_album = file_tags["album"][0]
+    try:
+        file_tags = EasyID3(DL_DIR + "/" + file)
+        file_title = file_tags["title"][0]
+        file_artist = file_tags["artist"][0]
+        file_album = file_tags["album"][0]
+    except KeyError:
+        # TODO: fix this part
+        print("No tags for " + file)
+        file_title = input("Song Title:")
+        file_artist = input("Artist:")
+        file_album = input("Album:")
 
     # Artist and Album Directories
     artist_dir = MUSIC_DIR + "/" + file_artist
@@ -26,4 +33,4 @@ for file in os.listdir(DL_DIR):
         os.makedirs(album_dir)
 
     # - move file to artist/album directory
-    shutil.move(DL_DIR + "/" + file, album_dir)
+    # shutil.move(DL_DIR + "/" + file, album_dir)
