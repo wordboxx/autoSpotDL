@@ -11,6 +11,7 @@ MUSIC_DIR = sys.argv[2]
 # Get Tags
 for file in os.listdir(DL_DIR):
     file_tags = EasyID3(DL_DIR + "/" + file)
+
     # - if file already has metadata
     try:
         file_title = file_tags["title"][0]
@@ -20,11 +21,12 @@ for file in os.listdir(DL_DIR):
     except KeyError:
         print("No tags for " + file)
         file_title = input("Song Title:")
-        file_tags["title"] = input("Song Title:")
+        file_tags["title"] = file_title
         file_artist = input("Artist:")
         file_tags["artist"] = file_artist
         file_album = input("Album:")
         file_tags["album"] = file_album
+        file_tags.save()
 
     # Artist and Album Directories
     artist_dir = MUSIC_DIR + "/" + file_artist
