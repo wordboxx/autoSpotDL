@@ -9,10 +9,6 @@ DL_DIR = sys.argv[1]
 MUSIC_DIR = sys.argv[2]
 
 # Get Tags
-# - persistent Artist, Album variables
-file_artist = ""
-file_album = ""
-
 # - loop through files
 for file in os.listdir(DL_DIR):
     print(f"Now sorting: {file}")
@@ -30,26 +26,16 @@ for file in os.listdir(DL_DIR):
     except KeyError:
         print("No tags for " + file)
 
-        # - persistent artist/album variables
-        if file_artist == "":
-            file_artist = input("Artist:")
-
-        if file_album == "":
-            file_album = input("Album:")
-
+        # - manual tag input
+        file_artist = input("Artist:")
         file_tags["artist"] = file_artist
+        file_album = input("Album:")
         file_tags["album"] = file_album
-
-        # - tag input
         file_title = input("Song Title:")
         file_tags["title"] = file_title
 
         # - save the tags
         file_tags.save()
-
-    if file_tags["artist"] == "":
-        print(f"Something went wrong with {file}")
-        exit()
 
     # Artist and Album Directories
     artist_dir = MUSIC_DIR + "/" + file_artist
