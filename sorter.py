@@ -15,6 +15,8 @@ file_album = ""
 
 # - loop through files
 for file in os.listdir(DL_DIR):
+    print(f"Now sorting: {file}")
+
     # - load all file tags
     file_tags = EasyID3(DL_DIR + "/" + file)
 
@@ -30,10 +32,10 @@ for file in os.listdir(DL_DIR):
 
         # - persistent artist/album variables
         if file_artist == "":
-            artist = input("Artist:")
+            file_artist = input("Artist:")
 
         if file_album == "":
-            album = input("Album:")
+            file_album = input("Album:")
 
         file_tags["artist"] = file_artist
         file_tags["album"] = file_album
@@ -44,6 +46,10 @@ for file in os.listdir(DL_DIR):
 
         # - save the tags
         file_tags.save()
+
+    if file_tags["artist"] == "":
+        print(f"Something went wrong with {file}")
+        exit()
 
     # Artist and Album Directories
     artist_dir = MUSIC_DIR + "/" + file_artist
