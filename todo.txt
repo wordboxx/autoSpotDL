@@ -1,5 +1,3 @@
 [] Add manual-sort album coverart retriever (RYM?) 
-[x] For YouTube downloads, prompt user for
-	Artist and Album only once if
-	downloading a playlist (or video
-	with chapters).
+[] When using yt-dlp, split into chapters and then
+	automatically get those chapters for the song title names
