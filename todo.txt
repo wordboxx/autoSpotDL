@@ -1,5 +1,5 @@
 [] Add manual-sort album coverart retriever (RYM?) 
-[] For YouTube downloads, prompt user for
+[x] For YouTube downloads, prompt user for
 	Artist and Album only once if
 	downloading a playlist (or video
 	with chapters).
