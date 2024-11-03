@@ -21,7 +21,7 @@ if [[ $USER_URL == *"spotify"* ]]; then
 	spotdl $USER_URL
 elif [[ $USER_URL == *"youtube"* ]]; then
 	echo "YouTube URL detected"
-	yt-dlp --split-chapters -x --audio-format mp3 $USER_URL
+	yt-dlp -x --audio-format mp3 $USER_URL
 elif [[ $USER_URL == "" ]]; then
 	echo "No download URL given; Sorting files"
 fi
