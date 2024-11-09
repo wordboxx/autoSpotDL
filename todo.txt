@@ -1,3 +1,0 @@
-[] Add manual-sort album coverart retriever (RYM?) 
-[] When using yt-dlp, split into chapters and then
-	automatically get those chapters for the song title names
