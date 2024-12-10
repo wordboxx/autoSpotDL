@@ -17,10 +17,8 @@ cd $DL_DIR
 
 # Action from URL
 if [[ $USER_URL == *"spotify"* ]]; then
-	echo "Spotify URL detected"
 	spotdl $USER_URL
 elif [[ $USER_URL == *"youtu"* ]]; then
-	echo "YouTube URL detected"
 	yt-dlp -x --audio-format mp3 $USER_URL
 elif [[ $USER_URL == "" ]]; then
 	echo "No download URL given; Sorting files"
