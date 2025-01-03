@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Directories
-VENV_DIR=venv/bin/activate
 DL_DIR=${PWD}/dl_dir
 MUSIC_DIR=~/Music
 
@@ -10,17 +9,16 @@ source venv/bin/activate
 
 # Get URL from user
 echo "Enter URL:"
-read USER_URL
+read -r USER_URL
 
-# Moving to download directory
-cd $DL_DIR
+# Moving to download directory (or exit if directory non-existent)
+cd "$DL_DIR" || exit
 
 # Action from URL
 if [[ $USER_URL == *"spotify"* ]]; then
-	spotdl $USER_URL
+	spotdl "$USER_URL"
 elif [[ $USER_URL == *"youtu"* ]]; then
-	yt-dlp -x --audio-format mp3 $USER_URL
-elif [[ $USER_URL == "" ]]; then
+	yt-dlp -x --audio-format mp3 "$USER_URL"
 	echo "No download URL given; Sorting files"
 fi
 
@@ -29,7 +27,7 @@ cd ..
 
 # Sort files in DL_DIR
 echo "Sorting files"
-python3 sorter.py $DL_DIR $MUSIC_DIR
+python3 sorter.py "$DL_DIR" "$MUSIC_DIR"
 
 # Deactivate Venv
 deactivate
