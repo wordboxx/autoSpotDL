@@ -1,8 +1,15 @@
 #!/bin/bash
 
 # Directories
-DL_DIR=${PWD}/dl_dir
+PROJECT_DIR=${PWD}
+VENV_DIR=$PROJECT_DIR/venv
+UTILITIES_DIR=$PROJECT_DIR/utilities
+DL_DIR=$PROJECT_DIR/dl_dir
 MUSIC_DIR=~/Music
+
+if [ ! -d venv ]; then
+    $UTILITIES_DIR/./installer.sh
+fi
 
 # Activate Venv
 source venv/bin/activate
@@ -16,10 +23,10 @@ cd "$DL_DIR" || exit
 
 # Action from URL
 if [[ $USER_URL == *"spotify"* ]]; then
-	spotdl "$USER_URL"
+    spotdl "$USER_URL"
 elif [[ $USER_URL == *"youtu"* ]]; then
-	yt-dlp -x --audio-format mp3 "$USER_URL"
-	echo "No download URL given; Sorting files"
+    yt-dlp -x --audio-format mp3 "$USER_URL"
+    echo "No download URL given; Sorting files"
 fi
 
 # Back out to main project directory
@@ -27,7 +34,7 @@ cd ..
 
 # Sort files in DL_DIR
 echo "Sorting files"
-python3 sorter.py "$DL_DIR" "$MUSIC_DIR"
+python3 $UTILITIES_DIR/sorter.py "$DL_DIR" "$MUSIC_DIR"
 
 # Deactivate Venv
 deactivate
