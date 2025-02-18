@@ -7,6 +7,7 @@ UTILITIES_DIR=$PROJECT_DIR/utilities
 DL_DIR=$PROJECT_DIR/dl_dir
 MUSIC_DIR=~/Music
 
+# Install a Python Venv if there isn't one yet.
 if [ ! -d venv ]; then
     $UTILITIES_DIR/./installer.sh
 fi
@@ -21,7 +22,7 @@ read -r USER_URL
 # Moving to download directory (or exit if directory non-existent)
 cd "$DL_DIR" || exit
 
-# Action from URL
+# Download files from URL into DL_DIR
 if [[ $USER_URL == *"spotify"* ]]; then
     spotdl "$USER_URL"
 elif [[ $USER_URL == *"youtu"* ]]; then
