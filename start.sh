@@ -26,18 +26,17 @@ if [[ $USER_URL == *"spotify"* ]]; then
     spotdl "$USER_URL"
 elif [[ $USER_URL == *"youtu"* ]]; then
     yt-dlp -x --audio-format mp3 "$USER_URL"
-    echo "No download URL given; Sorting files"
 fi
 
-# Back out to main project directory
+# Back out to main project directory.
 cd ..
 
-# Sort files in DL_DIR
-echo "Sorting files"
+# Sort files.
+echo "Sorting files."
 python3 $UTILITIES_DIR/sorter.py "$DL_DIR" "$MUSIC_DIR"
 
-# Deactivate Venv
+# Deactivate Venv.
 deactivate
 
-# Exit
+# Exit.
 exit 0
