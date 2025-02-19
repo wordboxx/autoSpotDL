@@ -1,20 +1,18 @@
 #!/bin/bash
-PROJECT_DIR=${PWD}
-VENV_DIR=$PROJECT_DIR/venv
-DL_DIR=$PROJECT_DIR/dl_dir
+
+# Directories.
 REQUIREMENTS_FILE=$PROJECT_DIR/requirements.txt
 
-# Python Management
-# - make venv if it doesn't exist
+# Make Python venv if it doesn't exist
 if [[ ! -d $VENV_DIR ]]; then
     echo "Making venv"
     python3 -m venv $VENV_DIR
 fi
 
-# - activate venv
+# Activate venv
 source $VENV_DIR/bin/activate
 
-# - install requirements
+# Install requirements
 echo "Installing from 'requirements.txt'"
 if [ -e $REQUIREMENTS_FILE ]; then
     pip install -r $REQUIREMENTS_FILE
