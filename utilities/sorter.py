@@ -33,7 +33,7 @@ def sort():
         # delete newest file and skip.
         if os.path.exists(album_dir + "/" + file):
             print(f"{file} already exists at location {album_dir}; deleting...")
-            os.remove(file)
+            os.remove(f"{DL_DIR}/{file}")
             continue
         else:
             # Move file to artist/album directory.
