@@ -9,21 +9,18 @@ MUSIC_DIR=~/Music
 
 # Install a Python Venv if there isn't one yet.
 if [ ! -d venv ]; then
-    . $UTILITIES_DIR/./installer.sh
+  . "$UTILITIES_DIR/./installer.sh"
 fi
 
 # Activate Venv.
-source $VENV_DIR/bin/activate
+source "$VENV_DIR/bin/activate"
 
 # Download songs.
-. $UTILITIES_DIR/./downloader.sh
-
-# Back out to main project directory.
-cd ..
+. "$UTILITIES_DIR/./downloader.sh"
 
 # Sort files.
 echo "Sorting files."
-python3 $UTILITIES_DIR/sorter.py "$DL_DIR" "$MUSIC_DIR"
+python3 "$UTILITIES_DIR/sorter.py" "$DL_DIR" "$MUSIC_DIR"
 
 # Deactivate Venv.
 deactivate
