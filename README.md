@@ -1,5 +1,5 @@
 # autoSpotDL
-### Easy Automated Music Downloading & Sorting (for Arch Linux)
+### Easy Automated Music Downloading & Sorting
 Just `cd` into the `autoSpotDL` directory and run `./start.sh`. The installer should create the python venv and install the dependencies in the `installer.sh`.\
 \
 From there, it will prompt you to input a Spotify URL. SpotDL will be ran on that URL (can be albums!) and download the music from YouTube but tag each file using Spotify metadata.\
