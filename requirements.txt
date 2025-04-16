@@ -1,12 +1,14 @@
 annotated-types==0.7.0
 anyio==3.7.1
-beautifulsoup4==4.12.3
+bandcamp-downloader==0.0.17
+beautifulsoup4==4.13.4
 Brotli==1.1.0
 certifi==2024.8.30
 charset-normalizer==3.4.0
 click==8.1.7
 coverage==5.5
 dacite==1.8.1
+demjson3==3.0.6
 Deprecated==1.2.14
 deprecation==2.1.0
 eyed3==0.9.7
@@ -43,6 +45,7 @@ syncedlyrics==1.0.1
 text-unidecode==1.3
 toml==0.10.2
 typing_extensions==4.12.2
+unicode-slugify==0.1.5
 Unidecode==1.3.8
 urllib3==2.2.3
 uvicorn==0.23.2
