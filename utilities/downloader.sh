@@ -13,10 +13,9 @@ if [[ $USER_URL == *"spot"* ]]; then
 fi
 
 # Use Bandcamp-DL to download if Bandcamp URL.
-# TODO: Fix this and in sorter.py.
 if [[ $USER_URL == *"bandcamp"* ]]; then
   echo "Downloading from Bandcamp."
-  bandcamp-dl -f "$USER_URL"
+  bandcamp-dl -f --base-dir="$DL_DIR" "$USER_URL"
 fi
 
 # Back out of DL_DIR.
