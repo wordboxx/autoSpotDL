@@ -2,13 +2,13 @@
 
 # Directories.
 PROJECT_DIR=${PWD}
-VENV_DIR=$PROJECT_DIR/venv
+VENV_DIR=$PROJECT_DIR/.venv
 UTILITIES_DIR=$PROJECT_DIR/utilities
 DL_DIR=$PROJECT_DIR/dl_dir
 MUSIC_DIR=~/Music
 
 # Install a Python Venv if there isn't one yet.
-if [ ! -d venv ]; then
+if [ ! -d $VENV_DIR ]; then
   . "$UTILITIES_DIR/./installer.sh"
 fi
 
