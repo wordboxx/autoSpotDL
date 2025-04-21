@@ -12,6 +12,12 @@ if [[ $USER_URL == *"spot"* ]]; then
   spotdl "$USER_URL"
 fi
 
+# Use YT-DLP to download if YouTube URL.
+if [[ $USER_URL == *"youtube"* ]]; then
+  echo "Downloading from YouTube."
+  yt-dlp -x --audio-format mp3 "$USER_URL"
+fi
+
 # Use Bandcamp-DL to download if Bandcamp URL.
 if [[ $USER_URL == *"bandcamp"* ]]; then
   echo "Downloading from Bandcamp."
