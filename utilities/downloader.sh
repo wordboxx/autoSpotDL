@@ -13,7 +13,7 @@ if [[ $USER_URL == *"spot"* ]]; then
 fi
 
 # Use YT-DLP to download if YouTube URL.
-if [[ $USER_URL == *"youtube"* ]]; then
+if [[ $USER_URL == *"youtu"* ]]; then # Shortened due to some youtu.be urls
   echo "Downloading from YouTube."
   yt-dlp -x --audio-format mp3 "$USER_URL"
 fi
