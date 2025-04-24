@@ -24,9 +24,11 @@ else
 fi
 echo "Installation complete"
 
-# Download-ffmpeg to SpotDL directory
-echo "Installing ffmpeg to SpotDL directory"
-spotdl --download-ffmpeg
+# Install ffmpeg if it's not installed
+if ! command -v ffmpeg &> /dev/null; then
+    echo "Installing ffmpeg"
+    spotdl --download-ffmpeg
+fi
 
 # Deactivate venv
 deactivate
