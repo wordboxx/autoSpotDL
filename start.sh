@@ -8,7 +8,7 @@ DL_DIR=$PROJECT_DIR/dl_dir
 MUSIC_DIR=~/Music
 
 # Install a Python Venv if there isn't one yet.
-if [ ! -d $VENV_DIR ]; then
+if [ ! -d "$VENV_DIR" ]; then
   . "$UTILITIES_DIR/./installer.sh"
 fi
 
