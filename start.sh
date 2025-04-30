@@ -19,7 +19,6 @@ source "$VENV_DIR/bin/activate"
 . "$UTILITIES_DIR/./downloader.sh"
 
 # Sort files.
-echo "Sorting files."
 python3 "$UTILITIES_DIR/sorter.py" "$DL_DIR" "$MUSIC_DIR"
 
 # Deactivate Venv.
